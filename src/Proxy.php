@@ -64,9 +64,14 @@ class Proxy
         $target = new Uri($target);
 
         // Overwrite target scheme and host.
-        $uri = $this->request->getUri()
+        /*$uri = $this->request->getUri()
             ->withScheme($target->getScheme())
-            ->withHost($target->getHost());
+            ->withHost($target->getHost());*/
+        $route = isset($_GET['request']) ? $_GET['request'] : '';
+        $uri = (new Uri())
+            ->withScheme($target->getScheme())
+            ->withHost($target->getHost())
+            ->withPath(rtrim($target->getPath(), '/') . '/' . $route);
 
         // Check for custom port.
         if ($port = $target->getPort()) {
@@ -74,9 +79,9 @@ class Proxy
         }
 
         // Check for subdirectory.
-        if ($path = $target->getPath()) {
+        /*if ($path = $target->getPath()) {
             $uri = $uri->withPath(rtrim($path, '/') . '/' . ltrim($uri->getPath(), '/'));
-        }
+        }*/
 
         $request = $this->request->withUri($uri);
 
