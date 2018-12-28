@@ -1,3 +1,7 @@
+# PHP Proxy 2
+- Updated dependencies
+- Fixed [issue #60](https://github.com/jenssegers/php-proxy/issues/60)
+
 # PHP Proxy
 
 [![Build Status](http://img.shields.io/travis/jenssegers/php-proxy.svg)](https://travis-ci.org/jenssegers/php-proxy) [![Coverage Status](http://img.shields.io/coveralls/jenssegers/php-proxy.svg)](https://coveralls.io/r/jenssegers/php-proxy?branch=master)
